@@ -78,7 +78,7 @@ const OrderConfirmationPage = ({
               >
                 Thank you for your order
               </Heading>
-              <Text color="textLight" maxW="32rem">
+              <Text color="blackAlpha.800" maxW="32rem">
                 We sent a confirmation email to {order.customer.emailAddress}.
                 Your order number is <strong>{order.orderNumber}</strong>.
               </Text>
@@ -119,7 +119,7 @@ const OrderConfirmationPage = ({
                   >
                     Shipping to
                   </Text>
-                  <Text color="textLight">
+                  <Text color="blackAlpha.800">
                     {order.shipping.address}
                     <br />
                     {order.shipping.city}, {order.shipping.zipCode}
@@ -137,7 +137,7 @@ const OrderConfirmationPage = ({
                   >
                     Payment method
                   </Text>
-                  <Text color="textLight">{order.payment.method}</Text>
+                  <Text color="blackAlpha.800">{order.payment.method}</Text>
                 </Box>
               </Box>
               <Box
@@ -154,25 +154,30 @@ const OrderConfirmationPage = ({
                   letterSpacing="0.1em"
                   textTransform="uppercase"
                   mb="1rem"
-                  color="textLight"
+                  color="whiteAlpha.900"
                 >
                   Order summary
                 </Text>
                 <Stack spacing="0.75rem">
-                  {totals.map(total => (
-                    <SummaryLine
-                      key={total.name}
-                      name={total.name}
-                      amount={total.amount}
-                      grandTotal={total.grandTotal}
-                    />
-                  ))}
+                  {totals.map(total => {
+                    const isGrandTotal = Boolean(total.grandTotal)
+                    return (
+                      <SummaryLine
+                        key={total.name}
+                        name={total.name}
+                        amount={total.amount}
+                        grandTotal={isGrandTotal}
+                        labelColor="whiteAlpha.700"
+                        valueColor={isGrandTotal ? 'accent' : 'whiteAlpha.900'}
+                      />
+                    )
+                  })}
                 </Stack>
                 <Box mt="1.5rem">
-                  <Text color="textLight" fontSize="0.75rem">
+                  <Text color="whiteAlpha.900" fontSize="0.75rem">
                     Status: <strong>{order.status}</strong>
                   </Text>
-                  <Text color="textLight" fontSize="0.75rem">
+                  <Text color="whiteAlpha.900" fontSize="0.75rem">
                     Placed on:{' '}
                     {new Date(order.createdAt).toLocaleString(undefined, {
                       dateStyle: 'medium',
@@ -187,7 +192,7 @@ const OrderConfirmationPage = ({
               align={{ base: 'stretch', md: 'center' }}
             >
               <Box>
-                <Text color="textLight">
+                <Text color="blackAlpha.800">
                   Need help? Reach us at{' '}
                   <a href="mailto:support@audiophile.shop">
                     support@audiophile.shop
@@ -207,7 +212,7 @@ const OrderConfirmationPage = ({
             <Heading as="h1" fontSize="2rem">
               Order unavailable
             </Heading>
-            <Text color="textLight">
+            <Text color="blackAlpha.800">
               We couldn’t find the order you were looking for. It may have
               expired or was already completed. Check your email for
               confirmation or contact support.
