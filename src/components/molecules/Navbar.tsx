@@ -3,7 +3,7 @@ import { Container, Flex } from '@chakra-ui/react'
 import Logo from 'components/atoms/Logo'
 import MenuIcon from 'components/atoms/MenuIcon'
 import CartIcon from 'components/atoms/CartIcon'
-import NavLinks from '../NavLinks'
+import NavLinks from './NavLinks'
 
 const Navbar = (): JSX.Element => {
   return (
