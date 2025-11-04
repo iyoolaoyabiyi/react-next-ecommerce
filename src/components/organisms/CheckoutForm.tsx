@@ -193,7 +193,7 @@ const CheckoutForm = (): JSX.Element => {
               aria-invalid={errors.name ? 'true' : 'false'}
               errors={errors.name}
               label="Name"
-              placeholder="Alexei Ward"
+              placeholder="Salt Tester"
             />
             <FormField
               {...register('emailAddress', {
@@ -207,7 +207,7 @@ const CheckoutForm = (): JSX.Element => {
               errors={errors.emailAddress}
               label="Email Address"
               type="email"
-              placeholder="alexei@mail.com"
+              placeholder="iyo@mail.com"
             />
             <FormField
               {...register('phoneNumber', {
